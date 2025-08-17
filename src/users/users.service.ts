@@ -4,6 +4,9 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
+
+require('dotenv').config()
 
 @Injectable()
 export class UsersService {
@@ -12,16 +15,15 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
     if (createUserDto.password != createUserDto.confirmPassword) {
       throw new HttpException('Passwords don\'t match.', HttpStatus.BAD_REQUEST)
     }
 
-    return this.usersRepository.save(createUserDto);
-  }
+    createUserDto.password = await bcrypt.hash(createUserDto.password, parseInt(process.env.SALT_ROUND ?? "10"));
 
-  findAll() {
-    return `This action returns all users`;
+    const newUser = await this.usersRepository.save(createUserDto);
+    return !!newUser ? { ok: true } : { ok: false, message: 'User can not be created.' };
   }
 
   findOne(email: string) {
@@ -32,11 +34,11 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
+  update(id: string, updateUserDto: UpdateUserDto) {
     return `This action updates a #${id} user`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  remove(id: string) {
+    return this.usersRepository.delete({ id });
   }
 }

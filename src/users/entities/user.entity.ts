@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Card } from "src/cards/entities/card.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -16,4 +17,7 @@ export class User {
 
     @Column({ type: Boolean, nullable: false, default: false })
     entreprise: boolean;
+
+    @OneToMany(() => Card, (card) => card.user, { cascade: true })
+    cards: Card[]
 }
