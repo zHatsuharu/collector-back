@@ -7,7 +7,7 @@ $ pnpm install
 
 ## Postgres
 
-Install the Postgres Database by following this tutorial : `https://www.w3schools.com/postgresql/postgresql_install.php`
+Install the Postgres Database by following this tutorial : https://www.w3schools.com/postgresql/postgresql_install.php
 
 ## Env
 
