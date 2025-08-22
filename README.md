@@ -45,3 +45,9 @@ $ pnpm run test:cov
 ---
 
 You should install the Front to complete the app : https://github.com/zHatsuharu/collector
+
+---
+
+More documentation :
+
+- Cahier de recette : [RECETTES.md](https://github.com/zHatsuharu/collector-back/blob/main/RECETTES.md)
