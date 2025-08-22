@@ -37,4 +37,4 @@ $ pnpm run test:cov
 
 ---
 
-You should install the Front to complete the app : `https://github.com/zHatsuharu/collector`
+You should install the Front to complete the app : https://github.com/zHatsuharu/collector
