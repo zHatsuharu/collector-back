@@ -13,6 +13,13 @@ Install the Postgres Database by following this tutorial : https://www.w3schools
 
 Duplicate the `.env.exemple` to `.env` and complete it.
 
+## Migrations
+
+Once you installed to database and setup the .env, run the migrations :
+```bash
+$ pnpm migrations:run
+```
+
 ## Compile and run the project
 
 ```bash
