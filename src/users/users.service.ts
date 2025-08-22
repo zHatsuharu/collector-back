@@ -34,10 +34,6 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
   remove(id: string) {
     return this.usersRepository.delete({ id });
   }

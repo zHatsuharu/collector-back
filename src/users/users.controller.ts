@@ -23,12 +23,6 @@ export class UsersController {
     return this.usersService.findOneById(id);
   }
 
-  @Patch(':id')
-  @UseGuards(AuthGuard)
-  update(@Request() req, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(req.user.uuid, updateUserDto);
-  }
-
   @Delete()
   @UseGuards(AuthGuard)
   remove(@Request() req) {
