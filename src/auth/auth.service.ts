@@ -21,9 +21,10 @@ export class AuthService {
     const isMatch = await bcrypt.compare(pass, user.password);
 
     if (isMatch) {
-      const payload = { uuid: user.id, username: user.username };
+      const payload = { uuid: user.id, username: user.username, email };
       return {
         access_token: await this.jwtService.signAsync(payload),
+        ...payload,
       };
     } else {
       throw new HttpException('wrong email or password.', HttpStatus.BAD_REQUEST)

@@ -10,6 +10,9 @@ export class Card {
     user!: User;
 
     @Column()
+    name!: string;
+
+    @Column()
     code!: string;
 
     @Column()
@@ -17,4 +20,7 @@ export class Card {
 
     @Column({ default: 1 })
     quantity!: number;
+
+    @Column()
+    image!: string;
 }

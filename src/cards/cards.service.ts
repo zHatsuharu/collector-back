@@ -16,6 +16,17 @@ export class CardsService {
 
   async create(id: string, createCardDto: CreateCardDto) {
     const user = await this.usersService.findOneById(id);
+    const card = await this.cardRepository.findOneBy({
+      user: user!,
+      code: createCardDto.code
+    });
+
+    if (card) {
+      return this.update(user!.id, {
+        code: createCardDto.code,
+        quantity: card.quantity + 1
+      })
+    }
 
     return this.cardRepository.save({
       user: user!,

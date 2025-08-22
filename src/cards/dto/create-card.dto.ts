@@ -5,8 +5,14 @@ export class CreateCardDto {
     code: string;
 
     @ApiProperty({ nullable: false })
+    name: string;
+
+    @ApiProperty({ nullable: false })
     type: string;
 
     @ApiProperty({ nullable: false })
     quantity: number;
+
+    @ApiProperty({ nullable: false })
+    image: string;
 }
