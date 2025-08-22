@@ -51,4 +51,4 @@ You should install the Front to complete the app : https://github.com/zHatsuharu
 More documentation :
 
 - Cahier de recette : [RECETTES.md](https://github.com/zHatsuharu/collector-back/blob/main/RECETTES.md)
-- Securité : [SECURITY.md](https://github.com/zHatsuharu/collector/blob/main/RECETTES.md)
+- Securité : [SECURITY.md](https://github.com/zHatsuharu/collector/blob/main/SECURITY.md)
